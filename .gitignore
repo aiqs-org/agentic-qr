@@ -46,3 +46,14 @@ vault/
 shared/hypotheses/
 shared/backtesting/results/
 shared/data/
+
+# Runtime state
+*.done
+*.trigger
+infisical/startup.log
+url
+
+# Python virtual envs
+.venv/
+venv/
+env/
