@@ -1,0 +1,34 @@
+{
+  "GLD": {
+    "instrument_id": "GLD.ALPACA",
+    "symbol": "GLD",
+    "venue": "ALPACA",
+    "price_precision": 2,
+    "price_increment": "0.01",
+    "research_context": "Safe-haven proxy within fiscal-dominance regime; likely to benefit if Treasury term-premium spikes reignite gold bid, especially if Fed remains on hold while deficits >6%-of-GDP pressure real yields lower."
+  },
+  "TLT": {
+    "instrument_id": "TLT.ALPACA",
+    "symbol": "TLT",
+    "venue": "ALPACA",
+    "price_precision": 2,
+    "price_increment": "0.01",
+    "research_context": "Direct exposure to term-premium shock thesis\u2014elevated Treasury supply minus Fed & foreign bid sets up asymmetric rally on any growth scare or QT-pause headline; high negative equity correlation flags it as macro hedge."
+  },
+  "SPY": {
+    "instrument_id": "SPY.ALPACA",
+    "symbol": "SPY",
+    "venue": "ALPACA",
+    "price_precision": 2,
+    "price_increment": "0.01",
+    "research_context": "Index at center of volatility-regime hypothesis\u2014dealer gamma overlays suppress realized vol while fiscal dominance, rate convexity and yen-carry unwind create latent left-tail; concentration risk in mega-caps amplifies shock transmission."
+  },
+  "QQQ": {
+    "instrument_id": "QQQ.ALPACA",
+    "symbol": "QQQ",
+    "venue": "ALPACA",
+    "price_precision": 2,
+    "price_increment": "0.01",
+    "research_context": "Highest concentration exposure to mega-cap tech that currently caps index vol; if macro shock flips rate-equity correlation negative, QQQ's duration-sensitive growth multiples make it the fastest leg lower in an asymmetric volatility shift."
+  }
+}

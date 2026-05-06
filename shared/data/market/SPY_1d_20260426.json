@@ -1,0 +1,884 @@
+[
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-01-26T05:00:00Z",
+    "data": {
+      "open": 690.485,
+      "high": 694.12,
+      "low": 689.95,
+      "close": 692.755,
+      "volume": 1235263
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-01-27T05:00:00Z",
+    "data": {
+      "open": 694.15,
+      "high": 696.515,
+      "low": 693.58,
+      "close": 695.53,
+      "volume": 1298406
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-01-28T05:00:00Z",
+    "data": {
+      "open": 697.02,
+      "high": 697.825,
+      "low": 694.16,
+      "close": 695.39,
+      "volume": 915857
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-01-29T05:00:00Z",
+    "data": {
+      "open": 696.345,
+      "high": 697.06,
+      "low": 684.85,
+      "close": 693.965,
+      "volume": 1448351
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-01-30T05:00:00Z",
+    "data": {
+      "open": 691.84,
+      "high": 694.17,
+      "low": 687.17,
+      "close": 691.8,
+      "volume": 1391309
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-02-02T05:00:00Z",
+    "data": {
+      "open": 689.62,
+      "high": 696.93,
+      "low": 689.445,
+      "close": 695.39,
+      "volume": 1805145
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-02-03T05:00:00Z",
+    "data": {
+      "open": 696.225,
+      "high": 696.945,
+      "low": 684.035,
+      "close": 689.435,
+      "volume": 1826631
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-02-04T05:00:00Z",
+    "data": {
+      "open": 690.29,
+      "high": 691.4,
+      "low": 681.78,
+      "close": 686.1,
+      "volume": 1834820
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-02-05T05:00:00Z",
+    "data": {
+      "open": 680.78,
+      "high": 683.64,
+      "low": 675.81,
+      "close": 677.44,
+      "volume": 1556860
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-02-06T05:00:00Z",
+    "data": {
+      "open": 681.435,
+      "high": 692.29,
+      "low": 681.14,
+      "close": 690.72,
+      "volume": 1801352
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-02-09T05:00:00Z",
+    "data": {
+      "open": 689.47,
+      "high": 695.855,
+      "low": 688.39,
+      "close": 694.0,
+      "volume": 1039359
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-02-10T05:00:00Z",
+    "data": {
+      "open": 694.91,
+      "high": 696.53,
+      "low": 691.66,
+      "close": 692.11,
+      "volume": 1087464
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-02-11T05:00:00Z",
+    "data": {
+      "open": 696.435,
+      "high": 697.08,
+      "low": 689.22,
+      "close": 691.81,
+      "volume": 1054954
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-02-12T05:00:00Z",
+    "data": {
+      "open": 694.23,
+      "high": 695.34,
+      "low": 680.4,
+      "close": 681.19,
+      "volume": 1558444
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-02-13T05:00:00Z",
+    "data": {
+      "open": 681.695,
+      "high": 686.26,
+      "low": 677.53,
+      "close": 681.61,
+      "volume": 1893959
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-02-17T05:00:00Z",
+    "data": {
+      "open": 680.15,
+      "high": 684.92,
+      "low": 675.79,
+      "close": 682.76,
+      "volume": 962881
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-02-18T05:00:00Z",
+    "data": {
+      "open": 683.87,
+      "high": 689.14,
+      "low": 682.87,
+      "close": 686.19,
+      "volume": 1657083
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-02-19T05:00:00Z",
+    "data": {
+      "open": 683.85,
+      "high": 686.135,
+      "low": 681.59,
+      "close": 684.505,
+      "volume": 1404841
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-02-20T05:00:00Z",
+    "data": {
+      "open": 682.23,
+      "high": 690.06,
+      "low": 681.865,
+      "close": 689.44,
+      "volume": 1325238
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-02-23T05:00:00Z",
+    "data": {
+      "open": 687.805,
+      "high": 690.0,
+      "low": 680.385,
+      "close": 682.39,
+      "volume": 1548756
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-02-24T05:00:00Z",
+    "data": {
+      "open": 681.52,
+      "high": 688.325,
+      "low": 680.0,
+      "close": 687.37,
+      "volume": 1287317
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-02-25T05:00:00Z",
+    "data": {
+      "open": 690.14,
+      "high": 693.66,
+      "low": 690.14,
+      "close": 693.1,
+      "volume": 711288
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-02-26T05:00:00Z",
+    "data": {
+      "open": 693.12,
+      "high": 693.175,
+      "low": 684.37,
+      "close": 689.32,
+      "volume": 1078975
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-02-27T05:00:00Z",
+    "data": {
+      "open": 682.995,
+      "high": 686.85,
+      "low": 681.66,
+      "close": 686.16,
+      "volume": 2640484
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-02T05:00:00Z",
+    "data": {
+      "open": 678.73,
+      "high": 688.59,
+      "low": 678.03,
+      "close": 686.35,
+      "volume": 2232660
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-03T05:00:00Z",
+    "data": {
+      "open": 675.03,
+      "high": 682.58,
+      "low": 669.675,
+      "close": 680.29,
+      "volume": 3334744
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-04T05:00:00Z",
+    "data": {
+      "open": 681.69,
+      "high": 687.085,
+      "low": 679.63,
+      "close": 685.13,
+      "volume": 2450782
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-05T05:00:00Z",
+    "data": {
+      "open": 682.09,
+      "high": 685.51,
+      "low": 675.63,
+      "close": 681.405,
+      "volume": 1852096
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-06T05:00:00Z",
+    "data": {
+      "open": 673.41,
+      "high": 676.1,
+      "low": 669.78,
+      "close": 672.44,
+      "volume": 1731167
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-09T04:00:00Z",
+    "data": {
+      "open": 666.38,
+      "high": 679.88,
+      "low": 662.42,
+      "close": 678.3,
+      "volume": 2019689
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-10T04:00:00Z",
+    "data": {
+      "open": 677.68,
+      "high": 683.33,
+      "low": 674.81,
+      "close": 677.13,
+      "volume": 1327363
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-11T04:00:00Z",
+    "data": {
+      "open": 677.68,
+      "high": 680.06,
+      "low": 673.36,
+      "close": 676.34,
+      "volume": 855049
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-12T04:00:00Z",
+    "data": {
+      "open": 671.115,
+      "high": 671.63,
+      "low": 665.91,
+      "close": 666.05,
+      "volume": 1851720
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-13T04:00:00Z",
+    "data": {
+      "open": 669.24,
+      "high": 672.335,
+      "low": 661.37,
+      "close": 662.3,
+      "volume": 1905066
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-16T04:00:00Z",
+    "data": {
+      "open": 668.41,
+      "high": 672.05,
+      "low": 667.16,
+      "close": 668.97,
+      "volume": 2121754
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-17T04:00:00Z",
+    "data": {
+      "open": 672.375,
+      "high": 674.4,
+      "low": 670.09,
+      "close": 670.75,
+      "volume": 1035443
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-18T04:00:00Z",
+    "data": {
+      "open": 668.35,
+      "high": 669.65,
+      "low": 661.23,
+      "close": 661.54,
+      "volume": 1836272
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-19T04:00:00Z",
+    "data": {
+      "open": 656.63,
+      "high": 662.93,
+      "low": 655.2,
+      "close": 659.87,
+      "volume": 1086895
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-20T04:00:00Z",
+    "data": {
+      "open": 656.495,
+      "high": 656.65,
+      "low": 644.75,
+      "close": 648.48,
+      "volume": 2140888
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-23T04:00:00Z",
+    "data": {
+      "open": 658.06,
+      "high": 662.605,
+      "low": 653.94,
+      "close": 655.37,
+      "volume": 2318783
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-24T04:00:00Z",
+    "data": {
+      "open": 651.295,
+      "high": 657.03,
+      "low": 649.92,
+      "close": 653.2,
+      "volume": 1746221
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-25T04:00:00Z",
+    "data": {
+      "open": 658.665,
+      "high": 660.83,
+      "low": 654.27,
+      "close": 656.74,
+      "volume": 1379333
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-26T04:00:00Z",
+    "data": {
+      "open": 652.02,
+      "high": 654.82,
+      "low": 644.83,
+      "close": 645.11,
+      "volume": 901469
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-27T04:00:00Z",
+    "data": {
+      "open": 642.475,
+      "high": 642.61,
+      "low": 633.105,
+      "close": 634.04,
+      "volume": 1640085
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-30T04:00:00Z",
+    "data": {
+      "open": 639.86,
+      "high": 640.28,
+      "low": 629.29,
+      "close": 632.02,
+      "volume": 1812294
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-03-31T04:00:00Z",
+    "data": {
+      "open": 638.905,
+      "high": 651.5,
+      "low": 638.01,
+      "close": 650.12,
+      "volume": 2822238
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-04-01T04:00:00Z",
+    "data": {
+      "open": 654.08,
+      "high": 658.52,
+      "low": 653.0,
+      "close": 655.18,
+      "volume": 1543102
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-04-02T04:00:00Z",
+    "data": {
+      "open": 646.425,
+      "high": 658.1,
+      "low": 645.13,
+      "close": 655.76,
+      "volume": 1505269
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-04-06T04:00:00Z",
+    "data": {
+      "open": 655.9,
+      "high": 659.4,
+      "low": 655.52,
+      "close": 658.885,
+      "volume": 1239157
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-04-07T04:00:00Z",
+    "data": {
+      "open": 656.85,
+      "high": 659.54,
+      "low": 651.06,
+      "close": 659.23,
+      "volume": 1811115
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-04-08T04:00:00Z",
+    "data": {
+      "open": 676.4,
+      "high": 677.06,
+      "low": 671.55,
+      "close": 676.0,
+      "volume": 2148131
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-04-09T04:00:00Z",
+    "data": {
+      "open": 674.98,
+      "high": 681.1,
+      "low": 673.8,
+      "close": 679.87,
+      "volume": 1394539
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-04-10T04:00:00Z",
+    "data": {
+      "open": 681.305,
+      "high": 682.03,
+      "low": 678.47,
+      "close": 679.35,
+      "volume": 959465
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-04-13T04:00:00Z",
+    "data": {
+      "open": 677.58,
+      "high": 686.28,
+      "low": 676.67,
+      "close": 686.0,
+      "volume": 1331996
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-04-14T04:00:00Z",
+    "data": {
+      "open": 687.72,
+      "high": 694.58,
+      "low": 687.715,
+      "close": 694.36,
+      "volume": 1574586
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-04-15T04:00:00Z",
+    "data": {
+      "open": 695.51,
+      "high": 700.28,
+      "low": 694.3,
+      "close": 699.75,
+      "volume": 1665266
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-04-16T04:00:00Z",
+    "data": {
+      "open": 701.075,
+      "high": 702.78,
+      "low": 698.54,
+      "close": 701.53,
+      "volume": 1394612
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-04-17T04:00:00Z",
+    "data": {
+      "open": 706.26,
+      "high": 712.345,
+      "low": 705.8,
+      "close": 710.06,
+      "volume": 1314488
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-04-20T04:00:00Z",
+    "data": {
+      "open": 708.87,
+      "high": 709.905,
+      "low": 706.15,
+      "close": 708.79,
+      "volume": 981019
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-04-21T04:00:00Z",
+    "data": {
+      "open": 710.165,
+      "high": 711.25,
+      "low": 702.67,
+      "close": 703.91,
+      "volume": 1279763
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-04-22T04:00:00Z",
+    "data": {
+      "open": 709.14,
+      "high": 711.44,
+      "low": 708.23,
+      "close": 711.2,
+      "volume": 1108252
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-04-23T04:00:00Z",
+    "data": {
+      "open": 709.37,
+      "high": 712.35,
+      "low": 702.34,
+      "close": 708.41,
+      "volume": 1469729
+    }
+  },
+  {
+    "source": "alpaca",
+    "type": "ohlcv",
+    "symbol": "SPY",
+    "interval": "1d",
+    "timestamp": "2026-04-24T04:00:00Z",
+    "data": {
+      "open": 710.755,
+      "high": 714.46,
+      "low": 709.02,
+      "close": 713.97,
+      "volume": 1063040
+    }
+  }
+]

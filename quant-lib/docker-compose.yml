@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  quant-lib:
+    build: .
+    container_name: caveman-quant-lib
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ../shared/data:/shared/data:ro
+      - ../shared/knowledge:/shared/knowledge:ro
+      - ../shared/backtesting:/shared/backtesting:rw
+      - ../shared/models:/shared/models:rw
+      - ../vault/bus:/vault/bus:rw
+      - ../vault/logs:/vault/logs:rw
+    networks:
+      - caveman-net
+
+networks:
+  caveman-net:
+    external: true
+    name: caveman-net

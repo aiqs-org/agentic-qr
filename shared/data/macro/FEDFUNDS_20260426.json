@@ -1,0 +1,752 @@
+[
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2020-01-01",
+    "data": {
+      "value": 1.55
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2020-02-01",
+    "data": {
+      "value": 1.58
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2020-03-01",
+    "data": {
+      "value": 0.65
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2020-04-01",
+    "data": {
+      "value": 0.05
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2020-05-01",
+    "data": {
+      "value": 0.05
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2020-06-01",
+    "data": {
+      "value": 0.08
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2020-07-01",
+    "data": {
+      "value": 0.09
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2020-08-01",
+    "data": {
+      "value": 0.1
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2020-09-01",
+    "data": {
+      "value": 0.09
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2020-10-01",
+    "data": {
+      "value": 0.09
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2020-11-01",
+    "data": {
+      "value": 0.09
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2020-12-01",
+    "data": {
+      "value": 0.09
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2021-01-01",
+    "data": {
+      "value": 0.09
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2021-02-01",
+    "data": {
+      "value": 0.08
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2021-03-01",
+    "data": {
+      "value": 0.07
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2021-04-01",
+    "data": {
+      "value": 0.07
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2021-05-01",
+    "data": {
+      "value": 0.06
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2021-06-01",
+    "data": {
+      "value": 0.08
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2021-07-01",
+    "data": {
+      "value": 0.1
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2021-08-01",
+    "data": {
+      "value": 0.09
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2021-09-01",
+    "data": {
+      "value": 0.08
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2021-10-01",
+    "data": {
+      "value": 0.08
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2021-11-01",
+    "data": {
+      "value": 0.08
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2021-12-01",
+    "data": {
+      "value": 0.08
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2022-01-01",
+    "data": {
+      "value": 0.08
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2022-02-01",
+    "data": {
+      "value": 0.08
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2022-03-01",
+    "data": {
+      "value": 0.2
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2022-04-01",
+    "data": {
+      "value": 0.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2022-05-01",
+    "data": {
+      "value": 0.77
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2022-06-01",
+    "data": {
+      "value": 1.21
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2022-07-01",
+    "data": {
+      "value": 1.68
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2022-08-01",
+    "data": {
+      "value": 2.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2022-09-01",
+    "data": {
+      "value": 2.56
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2022-10-01",
+    "data": {
+      "value": 3.08
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2022-11-01",
+    "data": {
+      "value": 3.78
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2022-12-01",
+    "data": {
+      "value": 4.1
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2023-01-01",
+    "data": {
+      "value": 4.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2023-02-01",
+    "data": {
+      "value": 4.57
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2023-03-01",
+    "data": {
+      "value": 4.65
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2023-04-01",
+    "data": {
+      "value": 4.83
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2023-05-01",
+    "data": {
+      "value": 5.06
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2023-06-01",
+    "data": {
+      "value": 5.08
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2023-07-01",
+    "data": {
+      "value": 5.12
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2023-08-01",
+    "data": {
+      "value": 5.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2023-09-01",
+    "data": {
+      "value": 5.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2023-10-01",
+    "data": {
+      "value": 5.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2023-11-01",
+    "data": {
+      "value": 5.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2023-12-01",
+    "data": {
+      "value": 5.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2024-01-01",
+    "data": {
+      "value": 5.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2024-02-01",
+    "data": {
+      "value": 5.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2024-03-01",
+    "data": {
+      "value": 5.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2024-04-01",
+    "data": {
+      "value": 5.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2024-05-01",
+    "data": {
+      "value": 5.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2024-06-01",
+    "data": {
+      "value": 5.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2024-07-01",
+    "data": {
+      "value": 5.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2024-08-01",
+    "data": {
+      "value": 5.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2024-09-01",
+    "data": {
+      "value": 5.13
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2024-10-01",
+    "data": {
+      "value": 4.83
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2024-11-01",
+    "data": {
+      "value": 4.64
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2024-12-01",
+    "data": {
+      "value": 4.48
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2025-01-01",
+    "data": {
+      "value": 4.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2025-02-01",
+    "data": {
+      "value": 4.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2025-03-01",
+    "data": {
+      "value": 4.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2025-04-01",
+    "data": {
+      "value": 4.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2025-05-01",
+    "data": {
+      "value": 4.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2025-06-01",
+    "data": {
+      "value": 4.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2025-07-01",
+    "data": {
+      "value": 4.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2025-08-01",
+    "data": {
+      "value": 4.33
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2025-09-01",
+    "data": {
+      "value": 4.22
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2025-10-01",
+    "data": {
+      "value": 4.09
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2025-11-01",
+    "data": {
+      "value": 3.88
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2025-12-01",
+    "data": {
+      "value": 3.72
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2026-01-01",
+    "data": {
+      "value": 3.64
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2026-02-01",
+    "data": {
+      "value": 3.64
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "FEDFUNDS",
+    "label": "fed_funds_rate",
+    "timestamp": "2026-03-01",
+    "data": {
+      "value": 3.64
+    }
+  }
+]

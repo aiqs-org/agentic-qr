@@ -1,0 +1,50 @@
+{
+  "FEDFUNDS": {
+    "series_id": "FEDFUNDS",
+    "rows": 75,
+    "start": "2020-01-01",
+    "end": "2026-03-01",
+    "latest_value": 3.64,
+    "path": "/shared/data/macro/FEDFUNDS_20260426.json"
+  },
+  "CPIAUCSL": {
+    "series_id": "CPIAUCSL",
+    "rows": 74,
+    "start": "2020-01-01",
+    "end": "2026-03-01",
+    "latest_value": 330.293,
+    "path": "/shared/data/macro/CPIAUCSL_20260426.json"
+  },
+  "VIXCLS": {
+    "series_id": "VIXCLS",
+    "rows": 1614,
+    "start": "2020-01-02",
+    "end": "2026-04-23",
+    "latest_value": 19.31,
+    "path": "/shared/data/macro/VIXCLS_20260426.json"
+  },
+  "DGS10": {
+    "series_id": "DGS10",
+    "rows": 1578,
+    "start": "2020-01-02",
+    "end": "2026-04-23",
+    "latest_value": 4.34,
+    "path": "/shared/data/macro/DGS10_20260426.json"
+  },
+  "UNRATE": {
+    "series_id": "UNRATE",
+    "rows": 74,
+    "start": "2020-01-01",
+    "end": "2026-03-01",
+    "latest_value": 4.3,
+    "path": "/shared/data/macro/UNRATE_20260426.json"
+  },
+  "T10Y2Y": {
+    "series_id": "T10Y2Y",
+    "rows": 1579,
+    "start": "2020-01-02",
+    "end": "2026-04-24",
+    "latest_value": 0.53,
+    "path": "/shared/data/macro/T10Y2Y_20260426.json"
+  }
+}

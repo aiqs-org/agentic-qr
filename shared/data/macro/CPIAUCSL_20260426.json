@@ -1,0 +1,742 @@
+[
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2020-01-01",
+    "data": {
+      "value": 259.127
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2020-02-01",
+    "data": {
+      "value": 259.25
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2020-03-01",
+    "data": {
+      "value": 258.076
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2020-04-01",
+    "data": {
+      "value": 256.032
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2020-05-01",
+    "data": {
+      "value": 255.802
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2020-06-01",
+    "data": {
+      "value": 257.042
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2020-07-01",
+    "data": {
+      "value": 258.352
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2020-08-01",
+    "data": {
+      "value": 259.316
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2020-09-01",
+    "data": {
+      "value": 259.997
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2020-10-01",
+    "data": {
+      "value": 260.319
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2020-11-01",
+    "data": {
+      "value": 260.911
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2020-12-01",
+    "data": {
+      "value": 262.045
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2021-01-01",
+    "data": {
+      "value": 262.687
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2021-02-01",
+    "data": {
+      "value": 263.579
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2021-03-01",
+    "data": {
+      "value": 264.961
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2021-04-01",
+    "data": {
+      "value": 266.614
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2021-05-01",
+    "data": {
+      "value": 268.383
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2021-06-01",
+    "data": {
+      "value": 270.654
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2021-07-01",
+    "data": {
+      "value": 271.903
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2021-08-01",
+    "data": {
+      "value": 272.676
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2021-09-01",
+    "data": {
+      "value": 273.91
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2021-10-01",
+    "data": {
+      "value": 276.55
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2021-11-01",
+    "data": {
+      "value": 278.919
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2021-12-01",
+    "data": {
+      "value": 280.845
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2022-01-01",
+    "data": {
+      "value": 282.543
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2022-02-01",
+    "data": {
+      "value": 284.5
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2022-03-01",
+    "data": {
+      "value": 287.674
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2022-04-01",
+    "data": {
+      "value": 288.561
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2022-05-01",
+    "data": {
+      "value": 291.298
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2022-06-01",
+    "data": {
+      "value": 294.957
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2022-07-01",
+    "data": {
+      "value": 294.913
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2022-08-01",
+    "data": {
+      "value": 295.097
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2022-09-01",
+    "data": {
+      "value": 296.349
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2022-10-01",
+    "data": {
+      "value": 298.007
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2022-11-01",
+    "data": {
+      "value": 298.786
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2022-12-01",
+    "data": {
+      "value": 298.832
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2023-01-01",
+    "data": {
+      "value": 300.42
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2023-02-01",
+    "data": {
+      "value": 301.45
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2023-03-01",
+    "data": {
+      "value": 301.821
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2023-04-01",
+    "data": {
+      "value": 302.845
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2023-05-01",
+    "data": {
+      "value": 303.334
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2023-06-01",
+    "data": {
+      "value": 304.014
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2023-07-01",
+    "data": {
+      "value": 304.609
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2023-08-01",
+    "data": {
+      "value": 306.082
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2023-09-01",
+    "data": {
+      "value": 307.276
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2023-10-01",
+    "data": {
+      "value": 307.696
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2023-11-01",
+    "data": {
+      "value": 308.148
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2023-12-01",
+    "data": {
+      "value": 308.741
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2024-01-01",
+    "data": {
+      "value": 309.698
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2024-02-01",
+    "data": {
+      "value": 310.967
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2024-03-01",
+    "data": {
+      "value": 312.345
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2024-04-01",
+    "data": {
+      "value": 313.023
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2024-05-01",
+    "data": {
+      "value": 313.175
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2024-06-01",
+    "data": {
+      "value": 313.044
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2024-07-01",
+    "data": {
+      "value": 313.569
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2024-08-01",
+    "data": {
+      "value": 314.062
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2024-09-01",
+    "data": {
+      "value": 314.732
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2024-10-01",
+    "data": {
+      "value": 315.631
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2024-11-01",
+    "data": {
+      "value": 316.528
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2024-12-01",
+    "data": {
+      "value": 317.604
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2025-01-01",
+    "data": {
+      "value": 318.961
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2025-02-01",
+    "data": {
+      "value": 319.679
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2025-03-01",
+    "data": {
+      "value": 319.785
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2025-04-01",
+    "data": {
+      "value": 320.302
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2025-05-01",
+    "data": {
+      "value": 320.62
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2025-06-01",
+    "data": {
+      "value": 321.435
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2025-07-01",
+    "data": {
+      "value": 322.169
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2025-08-01",
+    "data": {
+      "value": 323.291
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2025-09-01",
+    "data": {
+      "value": 324.245
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2025-11-01",
+    "data": {
+      "value": 325.063
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2025-12-01",
+    "data": {
+      "value": 326.031
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2026-01-01",
+    "data": {
+      "value": 326.588
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2026-02-01",
+    "data": {
+      "value": 327.46
+    }
+  },
+  {
+    "source": "fred",
+    "type": "macro",
+    "series_id": "CPIAUCSL",
+    "label": "cpi_urban",
+    "timestamp": "2026-03-01",
+    "data": {
+      "value": 330.293
+    }
+  }
+]

@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  strategy-core:
+    build: .
+    container_name: caveman-strategy-core
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      - QWEN_API_KEY=${QWEN_API_KEY}
+      - QWEN_BASE_URL=${QWEN_BASE_URL}
+      - QWEN_MODEL=${QWEN_MODEL}
+      - KIMI_MODEL=${KIMI_MODEL}
+    volumes:
+      - ../shared/data:/shared/data:ro
+      - ../shared/knowledge:/shared/knowledge:ro
+      - ../shared/backtesting:/shared/backtesting:rw
+      - ../shared/models:/shared/models:ro
+      - ../shared/hypotheses:/shared/hypotheses:rw
+      - ../vault/bus:/vault/bus:rw
+      - ../vault/logs:/vault/logs:rw
+      - ../vault/artifacts:/vault/artifacts:rw
+    networks:
+      - caveman-net
+
+networks:
+  caveman-net:
+    external: true
+    name: caveman-net

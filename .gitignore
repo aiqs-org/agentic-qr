@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+
+# Data files
+*.parquet
+*.csv
+*.h5
+
+# Logs
+*.log
+vault/logs/
+vault/bus/
+vault/artifacts/__pycache__/
+
+# Secrets & credentials
+.env
+*.env
+infisical-keyring/
+*.key
+*.pem
+
+# Docker
+.docker/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Infisical
+infisical/.env
+.infisical.json
+vault/
+shared/hypotheses/
+shared/backtesting/results/
+shared/data/

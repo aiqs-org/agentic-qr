@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  intake:
+    build: .
+    container_name: caveman-intake
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./drop:/intake/drop:ro
+      - ./processed:/intake/processed:rw
+      - ../shared/hypotheses:/shared/hypotheses:rw
+      - ../shared/knowledge:/shared/knowledge:rw
+      - ../vault/bus:/vault/bus:rw
+      - ../vault/logs:/vault/logs:rw
+    networks:
+      - caveman-net
+
+networks:
+  caveman-net:
+    external: true
+    name: caveman-net
