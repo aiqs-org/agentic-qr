@@ -1,83 +1,117 @@
-# Projects
+# Agentic QR
 
-A multi-agent system for quantitative research and strategy development, organized into two AI branches, a shared layer, persistent storage, an orchestration manager, and a construction agent.
+Agentic QR is a multi-agent quantitative research and strategy-development
+workspace. The system separates broad reasoning from direct execution so each
+agent can carry a smaller, more useful context.
 
----
+## Mental Model
 
-## Structure
+The repo is organized around two cognitive branches and a shared runtime layer:
 
+- `verbose/`: research-heavy branch for broad reasoning, strategy ideation,
+  librarian work, and hypothesis generation.
+- `caveman/`: token-frugal branch inspired by compact execution loops. Agents
+  here should be direct, file-aware, and implementation-focused.
+- `strategy-core/`: active SWE/backtest runtime. It turns hypotheses or strategy
+  requests into NautilusTrader strategy code and backtest results.
+- `quant-lib/`: object/catalog factory for market, macro, instrument, and bar
+  data used by strategy runtimes.
+- `intake/`: input router for dropped files and Telegram messages.
+- `shared/`: tracked shared fixtures, models, knowledge, and backtesting config.
+- `infisical/`: local secrets service configuration.
+
+The server also contains runtime-only directories ignored by Git:
+
+- `vault/`: bus messages, logs, artifacts, runtime state.
+- `manager/`: orchestration and human/strategy loops.
+- `construction/`: scaffolding agent experiments.
+- service `.env` files and Infisical local config.
+
+GitHub should remain the source of truth for tracked source code. The server is
+the runtime/test/deploy environment.
+
+## Branch Responsibilities
+
+### Verbose Branch
+
+Use `verbose/` when the work needs ambiguity, explanation, and synthesis.
+
+- `librarian`: gathers and packages context.
+- `researcher`: produces research notes and hypotheses.
+- Expected output: markdown research, hypotheses, open questions, strategy
+  rationale.
+
+### Caveman Branch
+
+Use `caveman/` when the work should be short, concrete, and operational.
+
+- `pipelines`: market and macro data ingestion.
+- `quant-lib`: compact object/catalog factory variant.
+- Expected output: files, bus events, catalogs, data artifacts, tested behavior.
+
+### SWE / Strategy Execution
+
+Use `strategy-core/` for strategy implementation and backtesting.
+
+- Reads hypotheses and catalogs.
+- Writes generated strategy artifacts.
+- Runs backtests.
+- Publishes result events.
+
+## Runtime Flow
+
+```text
+intake
+  -> verbose/librarian or verbose/researcher
+  -> shared/knowledge or shared/hypotheses
+  -> strategy-core
+  -> vault/artifacts and shared/backtesting/results
+
+caveman/pipelines
+  -> shared/data
+  -> quant-lib or caveman/quant-lib
+  -> shared/models and shared/backtesting/bars
+  -> strategy-core
 ```
-projects/
-├── verbose/          # Verbose branch — research-oriented agents
-├── caveman/          # Caveman branch — execution-oriented agents
-├── shared/           # Shared layer — common libraries and data
-├── vault/            # Persistent storage — state, logs, artifacts
-├── manager/          # Orchestration — human and strategy loops
-├── construction/     # Construction agent — scaffolds new projects/skills
-└── infisical/        # Secrets management (empty / external)
+
+## Current Server Runtime
+
+Observed on the server:
+
+- `caveman-intake`: running.
+- `caveman-strategy-core`: running.
+- `infisical-backend`, `infisical-db`, `infisical-dev-redis`: running.
+- `caveman-quant-lib`: stopped with exit 137.
+- `zeroclaw daemon`: running as `gram`.
+- Docker is available with legacy `docker-compose` v1. Compose v2 is not
+  installed.
+
+## Health Checks
+
+Run tracked-source syntax checks without writing bytecode:
+
+```bash
+python scripts/smoke_check.py
 ```
 
----
+Server runtime checks currently require Docker/sudo access:
 
-## Branches
+```bash
+docker ps
+docker-compose ps
+docker logs --tail 100 caveman-intake
+docker logs --tail 100 caveman-strategy-core
+docker logs --tail 100 caveman-quant-lib
+```
 
-### `verbose/` — Research Branch
-Agents focused on knowledge acquisition and synthesis.
+## Known Cleanup Areas
 
-- **librarian** — indexes and retrieves from a knowledge base (`index/`, `retrieval/`)
-- **researcher** — produces research output and applies skills (`output/`, `skills/`)
-
-### `caveman/` — Execution Branch
-Agents focused on data pipelines and strategy logic.
-
-- **pipelines** — data connectors, scrapers, and ingestion codex
-- **quant-lib** — quantitative objects and reusable financial primitives
-- **strategy-core** — core strategy logic and documentation
-
----
-
-## Shared Layer (`shared/`)
-Common code and data shared across both branches.
-
-| Folder | Purpose |
-|---|---|
-| `backtesting/` | Backtesting framework |
-| `data/` | Raw and processed datasets |
-| `hypotheses/` | Hypothesis tracking |
-| `knowledge/` | Shared knowledge store |
-| `models/` | Shared model definitions |
-| `utils/` | Common utilities |
-
----
-
-## Vault (`vault/`)
-Persistent runtime storage — the system's memory between runs.
-
-| Folder | Purpose |
-|---|---|
-| `artifacts/` | Produced outputs and deliverables |
-| `bus/` | Inter-agent message bus |
-| `clarifications/` | Queued clarification requests |
-| `feedback/` | Feedback records |
-| `logs/` | Run logs |
-| `state/` | Agent and project state snapshots |
-
----
-
-## Manager (`manager/`)
-Orchestrates agent loops and human interaction.
-
-- **human-loop** — handles human-in-the-loop checkpoints and approvals
-- **strat-loop** — drives the autonomous strategy execution loop
-- **src/** — manager core logic
-
----
-
-## Construction Agent (`construction/`)
-Scaffolds new projects, skills, and templates. The agent that builds the other agents.
-
-- **codex/** — agent codex / instructions
-- **projects/** — project scaffolds
-- **skills/** — skill templates
-- **templates/** — reusable file templates
-- **src/** — construction agent logic
+- Clarify whether top-level `quant-lib/` and `caveman/quant-lib/` should remain
+  separate or be consolidated.
+- Decide whether `strategy-core/` should live under the caveman execution branch
+  conceptually, while staying at the current path for compatibility.
+- Promote useful server-only `manager/` and `construction/` concepts into
+  tracked docs or source if they are still part of the intended architecture.
+- Add safe `.env.example` files for each service.
+- Add a server health script that reports container status, recent logs,
+  zeroclaw status, and tracked-source health without exposing secrets.
