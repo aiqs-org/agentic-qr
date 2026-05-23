@@ -22,7 +22,7 @@ If confidence < 0.6 or route = clarify:
 - Defaults to researcher on timeout
 
 ## Model
-Kimi K2.6 via OpenRouter — classification only, 500 tokens per call
+MiniMax via OpenRouter — classification only, 500 tokens per call
 
 ## File Types
 Reads anything as text. PDFs extracted via pdfminer.

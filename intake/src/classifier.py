@@ -1,7 +1,7 @@
 """
 classifier.py
 -------------
-Uses Kimi K2.6 to classify input and decide where to route it.
+Uses MiniMax via OpenRouter to classify input and decide where to route it.
 
 Routes:
   researcher  — thesis, idea, market observation, macro argument
@@ -22,7 +22,7 @@ client = OpenAI(
     api_key=os.getenv("OPENROUTER_API_KEY"),
     base_url=os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1"),
 )
-MODEL = os.getenv("KIMI_MODEL", "moonshotai/kimi-k2")
+MODEL = os.getenv("MINIMAX_MODEL", "minimax/minimax-m2.7")
 
 SYSTEM_PROMPT = """You are the intake router for an autonomous quantitative research system.
 

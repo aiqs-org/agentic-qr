@@ -20,7 +20,7 @@ def env_first(*names_and_defaults: str) -> str:
 
 
 OPENROUTER_BASE_URL = env_first('OPENROUTER_BASE_URL', 'https://openrouter.ai/api/v1')
-GENERATOR_MODEL = env_first('GENERATOR_MODEL', 'KIMI_MODEL', 'moonshotai/kimi-k2')
+GENERATOR_MODEL = env_first('GENERATOR_MODEL', 'MINIMAX_MODEL', 'minimax/minimax-m2.7')
 ANALYST_MODEL = env_first('ANALYST_MODEL', 'QWEN_MODEL', 'qwen/qwen3.6-35b-a3b')
 GENERATOR_BASE_URL = env_first('GENERATOR_BASE_URL', 'OPENROUTER_BASE_URL', OPENROUTER_BASE_URL)
 ANALYST_BASE_URL = env_first('ANALYST_BASE_URL', 'QWEN_BASE_URL', OPENROUTER_BASE_URL)
@@ -38,7 +38,7 @@ def get_generator():
 def get_analyst():
     return OpenAI(api_key=ANALYST_API_KEY, base_url=ANALYST_BASE_URL)
 
-def get_kimi():
+def get_minimax():
     return get_generator()
 
 def get_qwen():
@@ -62,7 +62,7 @@ def get_strategy_code_from_file(hyp_data: dict):
 
 
 def load_config_context() -> str:
-    """Read the actual config Python files and inject into Kimi's prompt."""
+    """Read the actual config Python files and inject into MiniMax's prompt."""
     ctx = ''
     for fname in ['venue.py', 'instruments.py', 'loader.py']:
         p = BACKTEST_CONFIG / fname
@@ -74,7 +74,7 @@ def load_config_context() -> str:
 
 QWEN_SYS = 'You are a quant analyst. Given a hypothesis and data, produce a refined spec. Output ONLY valid JSON with: assessment, refined_hypothesis, entry_conditions, exit_conditions, relevant_instruments, relevant_macro, risks, implementation_notes.'
 
-KIMI_SYS = '''You are a NautilusTrader 1.221 expert writing backtest strategies.
+MINIMAX_SYS = '''You are a NautilusTrader 1.221 expert writing backtest strategies.
 
 You have access to helper modules at /shared/backtesting/config/:
   - venue.py      → build_engine()
@@ -169,7 +169,7 @@ if __name__ == "__main__" or True:
 
 def load_context():
     ctx = ''
-    # Inject real config source files so Kimi sees actual working code
+    # Inject real config source files so MiniMax sees actual working code
     ctx += '=== ENVIRONMENT CONFIG (read before writing any code) ===\n'
     ctx += load_config_context()
     # Instrument and macro catalogs
@@ -232,12 +232,12 @@ def analyze_hypothesis(hyp, ctx):
 
 
 def write_strategy_code(analysis, ctx):
-    logger.info('[KIMI] writing code...')
+    logger.info('[MINIMAX] writing code...')
     r = get_generator().chat.completions.create(
         model=GENERATOR_MODEL,
         max_tokens=2000,
         messages=[
-            {'role': 'system', 'content': KIMI_SYS},
+            {'role': 'system', 'content': MINIMAX_SYS},
             {'role': 'user', 'content': (
                 'ENVIRONMENT (helper module source):\n' + load_config_context() +
                 '\nSPEC:\n' + json.dumps(analysis, indent=2) +
@@ -247,7 +247,7 @@ def write_strategy_code(analysis, ctx):
         ]
     )
     code = r.choices[0].message.content.strip().replace('```python', '').replace('```', '').strip()
-    logger.success('[KIMI] code written')
+    logger.success('[MINIMAX] code written')
     return code
 
 
@@ -272,12 +272,12 @@ def validate_code(code):
 
 
 def fix_strategy_code(code, error):
-    logger.info('[KIMI] fixing: ' + error[:100])
+    logger.info('[MINIMAX] fixing: ' + error[:100])
     r = get_generator().chat.completions.create(
         model=GENERATOR_MODEL,
         max_tokens=2000,
         messages=[
-            {'role': 'system', 'content': KIMI_SYS},
+            {'role': 'system', 'content': MINIMAX_SYS},
             {'role': 'user', 'content': (
                 'ENVIRONMENT:\n' + load_config_context() +
                 '\nBROKEN CODE:\n' + code +
@@ -297,15 +297,15 @@ def write_and_validate_strategy(analysis, ctx, max_retries=5):
             # Also do a runtime test to catch 'no market' and other runtime errors
             is_valid, error = test_run_strategy(code)
         if is_valid:
-            logger.success('[KIMI] validated on attempt ' + str(attempt + 1))
+            logger.success('[MINIMAX] validated on attempt ' + str(attempt + 1))
             return code
-        logger.warning('[KIMI] attempt ' + str(attempt + 1) + ' invalid: ' + str(error))
+        logger.warning('[MINIMAX] attempt ' + str(attempt + 1) + ' invalid: ' + str(error))
         if attempt < max_retries - 1:
             code = fix_strategy_code(code, error)
     is_valid, error = validate_code(code)
     if is_valid:
         return code
-    logger.error('[KIMI] still invalid after retries: ' + str(error))
+    logger.error('[MINIMAX] still invalid after retries: ' + str(error))
     return code
 
 

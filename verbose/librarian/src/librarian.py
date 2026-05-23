@@ -2,7 +2,7 @@ import os, json, hashlib, httpx
 from datetime import datetime
 from pathlib import Path
 
-MODEL = "moonshotai/kimi-k2.6"
+MODEL = "minimax/minimax-m2.7"
 SHARED_KNOWLEDGE = Path(os.getenv("SHARED_KNOWLEDGE_PATH", "/shared/knowledge"))
 VAULT_BUS = Path(os.getenv("VAULT_BUS_PATH", "/vault/bus"))
 INDEX_PATH = Path(os.getenv("LIBRARIAN_INDEX_PATH", "/app/librarian/index"))

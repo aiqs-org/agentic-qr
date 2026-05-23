@@ -20,7 +20,7 @@ Converts raw pipeline data into typed NautilusTrader objects.
 - Feature engineering, signal construction, backtesting, strategy code, research hypotheses
 
 ## Model
-Kimi K2.6 via OpenRouter (moonshotai/kimi-k2) — 1500 tokens per call
+MiniMax via OpenRouter (default: minimax/minimax-m2.7) — 1500 tokens per call
 
 ## Bus Events
 Inbox:  pipeline_data_updated / rebuild_objects → rebuild all objects

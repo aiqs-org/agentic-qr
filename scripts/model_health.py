@@ -22,7 +22,7 @@ SERVICE_ENV_FILES = (
 MODEL_KEYS = (
     "GENERATOR_MODEL",
     "ANALYST_MODEL",
-    "KIMI_MODEL",
+    "MINIMAX_MODEL",
     "QWEN_MODEL",
 )
 BASE_URL_KEYS = (
@@ -65,7 +65,7 @@ def is_openrouter_config(values: dict[str, str]) -> bool:
     for key in BASE_URL_KEYS:
         if "openrouter.ai" in values.get(key, ""):
             return True
-    return any(key in values for key in ("OPENROUTER_API_KEY", "KIMI_MODEL", "GENERATOR_MODEL"))
+    return any(key in values for key in ("OPENROUTER_API_KEY", "MINIMAX_MODEL", "GENERATOR_MODEL"))
 
 
 def closest(model: str, known_ids: set[str]) -> str | None:
@@ -94,8 +94,8 @@ def check_models(root: Path, known_ids: set[str]) -> list[ModelCheck]:
         keys = []
         if "GENERATOR_MODEL" in values:
             keys.append("GENERATOR_MODEL")
-        elif "KIMI_MODEL" in values:
-            keys.append("KIMI_MODEL")
+        elif "MINIMAX_MODEL" in values:
+            keys.append("MINIMAX_MODEL")
         if "ANALYST_MODEL" in values:
             keys.append("ANALYST_MODEL")
         elif "QWEN_MODEL" in values:

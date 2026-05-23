@@ -21,7 +21,7 @@ Takes hypotheses from researcher/human, writes NT strategy code, runs backtests,
 - Talk to pipelines directly
 
 ## Model
-Kimi K2.6 via OpenRouter (moonshotai/kimi-k2) — 2000 tokens per strategy write
+MiniMax via OpenRouter (default: minimax/minimax-m2.7) — 2000 tokens per strategy write
 
 ## Bus Events
 Inbox:  new_hypothesis          → write strategy + run backtest

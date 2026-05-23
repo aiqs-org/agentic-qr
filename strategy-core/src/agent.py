@@ -1,6 +1,6 @@
 """
 agent.py — strategy-core main loop
-Model: Kimi K2.6
+Model: MiniMax via OpenRouter
 Role: SWE agent — hypothesis → strategy code → backtest → result
 """
 

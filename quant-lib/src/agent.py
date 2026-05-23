@@ -16,7 +16,7 @@ client = OpenAI(
     api_key=os.getenv("OPENROUTER_API_KEY"),
     base_url=os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1"),
 )
-MODEL = os.getenv("KIMI_MODEL", "moonshotai/kimi-k2")
+MODEL = os.getenv("MINIMAX_MODEL", "minimax/minimax-m2.7")
 
 SHARED_MODELS = Path(os.getenv("SHARED_MODELS", "/shared/models"))
 SHARED_KNOWLEDGE = Path(os.getenv("SHARED_KNOWLEDGE", "/shared/knowledge"))

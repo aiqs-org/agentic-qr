@@ -24,7 +24,7 @@ Converts raw pipeline data into typed NautilusTrader objects.
 - Research hypotheses
 
 ## Model
-Kimi K2.6 via OpenRouter (moonshotai/kimi-k2)
+MiniMax via OpenRouter (default: minimax/minimax-m2.7)
 Token budget: 1500 per call
 
 ## Bus Events
