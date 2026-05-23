@@ -11,12 +11,20 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-OPENROUTER_BASE_URL = os.getenv('OPENROUTER_BASE_URL', 'https://openrouter.ai/api/v1')
-GENERATOR_MODEL = os.getenv('GENERATOR_MODEL', os.getenv('KIMI_MODEL', 'moonshotai/kimi-k2'))
-ANALYST_MODEL = os.getenv('ANALYST_MODEL', os.getenv('QWEN_MODEL', 'qwen/qwen3.6-35b-a3b'))
-GENERATOR_BASE_URL = os.getenv('GENERATOR_BASE_URL', OPENROUTER_BASE_URL)
-ANALYST_BASE_URL = os.getenv('ANALYST_BASE_URL', os.getenv('QWEN_BASE_URL', OPENROUTER_BASE_URL))
-GENERATOR_API_KEY = os.getenv('GENERATOR_API_KEY', os.getenv('OPENROUTER_API_KEY'))
+def env_first(*names_and_defaults: str) -> str:
+    for name in names_and_defaults[:-1]:
+        value = os.getenv(name)
+        if value:
+            return value
+    return names_and_defaults[-1]
+
+
+OPENROUTER_BASE_URL = env_first('OPENROUTER_BASE_URL', 'https://openrouter.ai/api/v1')
+GENERATOR_MODEL = env_first('GENERATOR_MODEL', 'KIMI_MODEL', 'moonshotai/kimi-k2')
+ANALYST_MODEL = env_first('ANALYST_MODEL', 'QWEN_MODEL', 'qwen/qwen3.6-35b-a3b')
+GENERATOR_BASE_URL = env_first('GENERATOR_BASE_URL', 'OPENROUTER_BASE_URL', OPENROUTER_BASE_URL)
+ANALYST_BASE_URL = env_first('ANALYST_BASE_URL', 'QWEN_BASE_URL', OPENROUTER_BASE_URL)
+GENERATOR_API_KEY = env_first('GENERATOR_API_KEY', 'OPENROUTER_API_KEY', '')
 ANALYST_API_KEY = os.getenv('ANALYST_API_KEY')
 if not ANALYST_API_KEY:
     if 'openrouter.ai' in ANALYST_BASE_URL:
