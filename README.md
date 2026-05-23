@@ -23,6 +23,8 @@ The repo is organized around two cognitive branches and a shared runtime layer:
 The server also contains runtime-only directories ignored by Git:
 
 - `vault/`: bus messages, logs, artifacts, runtime state.
+- `vault/intake-trace/`: per-message intake receipts with route, confidence,
+  dispatch target, and source preview.
 - `manager/`: orchestration and human/strategy loops.
 - `construction/`: scaffolding agent experiments.
 - service `.env` files and Infisical local config.

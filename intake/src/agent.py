@@ -1,41 +1,79 @@
-"""
-agent.py — intake router main loop
+"""Intake router main loop.
 
-Two valves:
-  1. Drop folder (/intake/drop/) — watches for new files
-  2. Telegram — polls for new messages
+Inputs:
+- Drop folder at /intake/drop/
+- Telegram messages
 
-Both feed into classifier → dispatcher.
+Both inputs flow through classifier -> dispatcher -> intake trace receipt.
 Clarification requests go back via Telegram or terminal.
 """
 
+import json
 import os
-import time
 import shutil
-from pathlib import Path
+import time
 from datetime import datetime, timezone
+from pathlib import Path
 
-from loguru import logger
 from dotenv import load_dotenv
+from loguru import logger
 
-from reader import extract_text
 from classifier import classify
 from dispatcher import dispatch
-from telegram_valve import poll_messages, ask_clarification, send
+from reader import extract_text
+from telegram_valve import ask_clarification, poll_messages, send
 
 load_dotenv()
 
 INTAKE_DROP = Path(os.getenv("INTAKE_DROP", "/intake/drop"))
 INTAKE_PROCESSED = Path(os.getenv("INTAKE_PROCESSED", "/intake/processed"))
 VAULT_LOGS = Path(os.getenv("VAULT_LOGS", "/vault/logs"))
+VAULT_INTAKE_TRACE = Path(os.getenv("VAULT_INTAKE_TRACE", "/vault/intake-trace"))
 
 INTAKE_DROP.mkdir(parents=True, exist_ok=True)
 INTAKE_PROCESSED.mkdir(parents=True, exist_ok=True)
 VAULT_LOGS.mkdir(parents=True, exist_ok=True)
+VAULT_INTAKE_TRACE.mkdir(parents=True, exist_ok=True)
+
+
+def source_kind(source_name: str) -> str:
+    if source_name.startswith("telegram_"):
+        return "telegram"
+    return "drop"
+
+
+def write_trace(
+    *,
+    source_name: str,
+    text: str,
+    classification: dict,
+    route: str,
+    out_path: str | None,
+) -> Path:
+    ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%f")
+    trace_id = f"{source_name}_{ts}"
+    trace_path = VAULT_INTAKE_TRACE / f"{trace_id}.json"
+    payload = {
+        "trace_id": trace_id,
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "source": source_kind(source_name),
+        "source_name": source_name,
+        "route": route,
+        "confidence": classification.get("confidence"),
+        "reason": classification.get("reason"),
+        "summary": classification.get("summary", ""),
+        "classification": classification,
+        "dispatch_target": out_path,
+        "status": "dispatched" if out_path else "not_dispatched",
+        "text_preview": text[:1000],
+    }
+    trace_path.write_text(json.dumps(payload, indent=2))
+    logger.info(f"[TRACE] wrote {trace_path}")
+    return trace_path
 
 
 def process_content(text: str, source_name: str):
-    """Classify and dispatch a piece of content."""
+    """Classify, dispatch, trace, and acknowledge a piece of content."""
     if not text.strip():
         logger.warning(f"[AGENT] empty content from {source_name}, skipping")
         return
@@ -46,12 +84,13 @@ def process_content(text: str, source_name: str):
     summary = classification.get("summary", "")
     confidence = classification.get("confidence", 0)
 
-    # If ambiguous or low confidence, ask for clarification
     if route == "clarify" or confidence < 0.6:
-        question = classification.get("clarify_question") or \
-            f"Where should '{source_name}' be routed?\nSummary: {summary}\nOptions: researcher / swe / librarian"
+        question = classification.get("clarify_question") or (
+            f"Where should '{source_name}' be routed?\n"
+            f"Summary: {summary}\n"
+            "Options: researcher / swe / librarian"
+        )
         reply = ask_clarification(question)
-        # Parse reply
         reply_lower = reply.lower()
         if "swe" in reply_lower or "engineer" in reply_lower or "code" in reply_lower:
             route = "swe"
@@ -63,10 +102,25 @@ def process_content(text: str, source_name: str):
         classification["clarified_by_human"] = True
 
     out_path = dispatch(route, text, classification, source_name)
+    trace_path = write_trace(
+        source_name=source_name,
+        text=text,
+        classification=classification,
+        route=route,
+        out_path=out_path,
+    )
 
-    # Notify via Telegram
-    send(f"✅ Routed '{source_name}' → {route.upper()}\n{summary}")
-    logger.success(f"[AGENT] {source_name} → {route} → {out_path}")
+    target = Path(out_path).name if out_path else "none"
+    send(
+        "Routed intake message\n"
+        f"source: {source_name}\n"
+        f"route: {route}\n"
+        f"confidence: {confidence}\n"
+        f"target: {target}\n"
+        f"trace: {trace_path.name}\n"
+        f"summary: {summary[:500]}"
+    )
+    logger.success(f"[AGENT] {source_name} -> {route} -> {out_path} trace={trace_path.name}")
 
 
 def process_drop_folder():
@@ -76,7 +130,6 @@ def process_drop_folder():
             logger.info(f"[DROP] found: {file_path.name}")
             text = extract_text(file_path)
             process_content(text, file_path.stem)
-            # Move to processed
             dest = INTAKE_PROCESSED / f"{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S')}_{file_path.name}"
             shutil.move(str(file_path), str(dest))
 
@@ -85,7 +138,6 @@ def process_telegram():
     """Check Telegram for new messages."""
     for msg in poll_messages():
         text = msg["text"]
-        # Skip commands for now
         if text.startswith("/"):
             continue
         process_content(text, f"telegram_{datetime.now(timezone.utc).strftime('%H%M%S')}")
@@ -94,7 +146,7 @@ def process_telegram():
 def main():
     logger.info("=== intake router starting ===")
     logger.info(f"[DROP] watching {INTAKE_DROP}")
-    send("🟢 Intake router online. Drop files or send messages to route them.")
+    send("Intake router online. Drop files or send messages to route them.")
 
     while True:
         try:

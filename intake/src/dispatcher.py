@@ -1,16 +1,9 @@
-"""
-dispatcher.py
--------------
-Takes a classified input and writes it to the right place.
-
-researcher → shared/hypotheses/{ts}_intake.json
-swe        → vault/bus/strategy-core-inbox/{ts}_new_code.json
-librarian  → shared/knowledge/{ts}_intake.md
-"""
+"""Dispatch classified intake content to the appropriate runtime location."""
 
 import json
-from pathlib import Path
 from datetime import datetime, timezone
+from pathlib import Path
+
 from loguru import logger
 
 SHARED_HYPOTHESES = Path("/shared/hypotheses")
@@ -32,10 +25,10 @@ def dispatch(route: str, content: str, classification: dict, source_name: str):
             "classification": classification,
         }
         out_path.write_text(json.dumps(payload, indent=2))
-        logger.success(f"[DISPATCH] → researcher: {out_path.name}")
+        logger.success(f"[DISPATCH] -> researcher: {out_path.name}")
         return str(out_path)
 
-    elif route == "swe":
+    if route == "swe":
         inbox = VAULT_BUS / "strategy-core-inbox"
         inbox.mkdir(parents=True, exist_ok=True)
         out_path = inbox / f"{ts}_new_code.json"
@@ -50,10 +43,10 @@ def dispatch(route: str, content: str, classification: dict, source_name: str):
             },
         }
         out_path.write_text(json.dumps(payload, indent=2))
-        logger.success(f"[DISPATCH] → swe: {out_path.name}")
+        logger.success(f"[DISPATCH] -> swe: {out_path.name}")
         return str(out_path)
 
-    elif route == "librarian":
+    if route == "librarian":
         out_path = SHARED_KNOWLEDGE / f"{ts}_{source_name}.md"
         out_path.parent.mkdir(parents=True, exist_ok=True)
         md = f"# {source_name}\n\n"
@@ -62,9 +55,8 @@ def dispatch(route: str, content: str, classification: dict, source_name: str):
         md += "---\n\n"
         md += content
         out_path.write_text(md)
-        logger.success(f"[DISPATCH] → librarian: {out_path.name}")
+        logger.success(f"[DISPATCH] -> librarian: {out_path.name}")
         return str(out_path)
 
-    else:
-        logger.warning(f"[DISPATCH] unknown route: {route}")
-        return None
+    logger.warning(f"[DISPATCH] unknown route: {route}")
+    return None

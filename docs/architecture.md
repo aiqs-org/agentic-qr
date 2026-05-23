@@ -106,6 +106,8 @@ Avoid:
 Expected roles:
 
 - `vault/bus/`: inter-agent messages.
+- `vault/intake-trace/`: per-message intake receipts with classification,
+  route, dispatch target, and source preview.
 - `vault/artifacts/`: generated strategy files and outputs.
 - `vault/logs/`: runtime logs.
 - `vault/state/`: state snapshots.
