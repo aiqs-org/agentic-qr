@@ -28,7 +28,7 @@ tags: []
 def call_model(messages):
     headers = {"Authorization": f"Bearer {QWEN_KEY or os.getenv('OPENROUTER_API_KEY')}", "Content-Type": "application/json"}
     use_url = QWEN_URL if QWEN_URL else URL
-r = httpx.post(use_url, headers=headers, json={"model": MODEL, "max_tokens": 4096, "messages": messages}, timeout=120)
+    r = httpx.post(use_url, headers=headers, json={"model": MODEL, "max_tokens": 4096, "messages": messages}, timeout=120)
     r.raise_for_status()
     return r.json()["choices"][0]["message"]["content"]
 
