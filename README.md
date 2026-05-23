@@ -97,6 +97,12 @@ python scripts/smoke_check.py
 Server runtime checks currently require Docker/sudo access:
 
 ```bash
+python3 scripts/server_health.py
+```
+
+For manual inspection:
+
+```bash
 docker ps
 docker-compose ps
 docker logs --tail 100 caveman-intake
