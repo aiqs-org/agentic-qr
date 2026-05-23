@@ -7,18 +7,6 @@ services:
     restart: unless-stopped
     env_file:
       - .env
-    environment:
-      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
-      - GENERATOR_API_KEY=${GENERATOR_API_KEY}
-      - GENERATOR_BASE_URL=${GENERATOR_BASE_URL}
-      - GENERATOR_MODEL=${GENERATOR_MODEL}
-      - ANALYST_API_KEY=${ANALYST_API_KEY}
-      - ANALYST_BASE_URL=${ANALYST_BASE_URL}
-      - ANALYST_MODEL=${ANALYST_MODEL}
-      - QWEN_API_KEY=${QWEN_API_KEY}
-      - QWEN_BASE_URL=${QWEN_BASE_URL}
-      - QWEN_MODEL=${QWEN_MODEL}
-      - KIMI_MODEL=${KIMI_MODEL}
     volumes:
       - ../shared/data:/shared/data:ro
       - ../shared/knowledge:/shared/knowledge:ro
