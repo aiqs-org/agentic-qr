@@ -123,6 +123,18 @@ def container_findings() -> list[Finding]:
     return findings
 
 
+def compose_findings() -> list[Finding]:
+    result = run(["docker", "compose", "version"])
+    if result.returncode == 0:
+        return [Finding("ok", "compose", result.stdout.strip())]
+    legacy = shutil.which("docker-compose")
+    if legacy:
+        version = run([legacy, "--version"])
+        detail = version.stdout.strip() if version.returncode == 0 else "legacy docker-compose installed"
+        return [Finding("error", "compose", f"Docker Compose v2 unavailable; {detail}")]
+    return [Finding("error", "compose", "Docker Compose v2 unavailable")]
+
+
 def log_findings(tail: int) -> list[Finding]:
     findings: list[Finding] = []
     for name in ("caveman-intake", "caveman-strategy-core", "caveman-quant-lib"):
@@ -196,6 +208,7 @@ def main() -> int:
 
     findings = [
         *syntax_findings(),
+        *compose_findings(),
         *container_findings(),
         *log_findings(args.log_tail),
         *model_config_findings(),

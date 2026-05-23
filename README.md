@@ -83,8 +83,7 @@ Observed on the server:
 - `infisical-backend`, `infisical-db`, `infisical-dev-redis`: running.
 - `caveman-quant-lib`: stopped with exit 137.
 - `zeroclaw daemon`: running as `gram`.
-- Docker is available with legacy `docker-compose` v1. Compose v2 is not
-  installed.
+- Docker and Docker Compose v2 are available on the server.
 
 ## Health Checks
 
@@ -110,7 +109,7 @@ For manual inspection:
 
 ```bash
 docker ps
-docker-compose ps
+docker compose ps
 docker logs --tail 100 caveman-intake
 docker logs --tail 100 caveman-strategy-core
 docker logs --tail 100 caveman-quant-lib

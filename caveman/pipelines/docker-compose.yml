@@ -1,4 +1,3 @@
-version: "3.9"
 services:
   pipelines:
     build:
@@ -9,9 +8,9 @@ services:
     environment:
       - SHARED_DATA_PATH=/shared/data
       - VAULT_BUS_PATH=/vault/bus
-      - ALPACA_API_KEY=${ALPACA_API_KEY}
-      - ALPACA_SECRET_KEY=${ALPACA_SECRET_KEY}
-      - FRED_API_KEY=${FRED_API_KEY}
+      - ALPACA_API_KEY=${ALPACA_API_KEY:-}
+      - ALPACA_SECRET_KEY=${ALPACA_SECRET_KEY:-}
+      - FRED_API_KEY=${FRED_API_KEY:-}
     volumes:
       - /home/gram/projects/shared:/shared:rw
       - /home/gram/projects/vault:/vault:rw

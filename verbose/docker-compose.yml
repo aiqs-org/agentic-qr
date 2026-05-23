@@ -1,4 +1,3 @@
-version: "3.9"
 services:
   verbose:
     build:
@@ -7,10 +6,10 @@ services:
     container_name: verbose
     restart: unless-stopped
     environment:
-      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
-      - QWEN_API_KEY=${QWEN_API_KEY}
-      - QWEN_BASE_URL=${QWEN_BASE_URL}
-      - QWEN_MODEL=${QWEN_MODEL}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-}
+      - QWEN_API_KEY=${QWEN_API_KEY:-}
+      - QWEN_BASE_URL=${QWEN_BASE_URL:-}
+      - QWEN_MODEL=${QWEN_MODEL:-}
       - SHARED_KNOWLEDGE_PATH=/shared/knowledge
       - VAULT_BUS_PATH=/vault/bus
       - LIBRARIAN_INDEX_PATH=/app/librarian/index
