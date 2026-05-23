@@ -94,6 +94,12 @@ Run tracked-source syntax checks without writing bytecode:
 python scripts/smoke_check.py
 ```
 
+Check configured model IDs against OpenRouter without printing API keys:
+
+```bash
+python scripts/model_health.py
+```
+
 Server runtime checks currently require Docker/sudo access:
 
 ```bash

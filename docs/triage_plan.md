@@ -42,6 +42,9 @@ Goal: make user input land in the right runtime without guessing.
 Goal: stop confusing provider labels with model identity.
 
 - Rename Kimi-facing config in docs to Moonshot/Kimi where appropriate.
+- Prefer role-based env names:
+  - `GENERATOR_MODEL` for strategy-code generation.
+  - `ANALYST_MODEL` for hypothesis analysis and result interpretation.
 - Record actual provider, base URL, and model ID without exposing API keys.
 - Diagnose hallucination by checking whether objects and packet context reach
   the model prompt before blaming the model itself.

@@ -11,14 +11,30 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-KIMI_MODEL = os.getenv('KIMI_MODEL', 'moonshotai/kimi-k2')
-QWEN_MODEL = os.getenv('QWEN_MODEL', 'Qwen/Qwen3.6-35B-A3B-FP8')
+OPENROUTER_BASE_URL = os.getenv('OPENROUTER_BASE_URL', 'https://openrouter.ai/api/v1')
+GENERATOR_MODEL = os.getenv('GENERATOR_MODEL', os.getenv('KIMI_MODEL', 'moonshotai/kimi-k2'))
+ANALYST_MODEL = os.getenv('ANALYST_MODEL', os.getenv('QWEN_MODEL', 'qwen/qwen3.6-35b-a3b'))
+GENERATOR_BASE_URL = os.getenv('GENERATOR_BASE_URL', OPENROUTER_BASE_URL)
+ANALYST_BASE_URL = os.getenv('ANALYST_BASE_URL', os.getenv('QWEN_BASE_URL', OPENROUTER_BASE_URL))
+GENERATOR_API_KEY = os.getenv('GENERATOR_API_KEY', os.getenv('OPENROUTER_API_KEY'))
+ANALYST_API_KEY = os.getenv('ANALYST_API_KEY')
+if not ANALYST_API_KEY:
+    if 'openrouter.ai' in ANALYST_BASE_URL:
+        ANALYST_API_KEY = os.getenv('OPENROUTER_API_KEY')
+    else:
+        ANALYST_API_KEY = os.getenv('QWEN_API_KEY') or os.getenv('OPENROUTER_API_KEY')
+
+def get_generator():
+    return OpenAI(api_key=GENERATOR_API_KEY, base_url=GENERATOR_BASE_URL)
+
+def get_analyst():
+    return OpenAI(api_key=ANALYST_API_KEY, base_url=ANALYST_BASE_URL)
 
 def get_kimi():
-    return OpenAI(api_key=os.getenv('OPENROUTER_API_KEY'), base_url=os.getenv('OPENROUTER_BASE_URL', 'https://openrouter.ai/api/v1'))
+    return get_generator()
 
 def get_qwen():
-    return OpenAI(api_key=os.getenv('QWEN_API_KEY'), base_url=os.getenv('QWEN_BASE_URL'))
+    return get_analyst()
 
 SHARED_KNOWLEDGE  = Path(os.getenv('SHARED_KNOWLEDGE',  '/shared/knowledge'))
 SHARED_MODELS     = Path(os.getenv('SHARED_MODELS',     '/shared/models'))
@@ -178,8 +194,8 @@ def load_pending_hypotheses():
 def analyze_hypothesis(hyp, ctx):
     logger.info('[QWEN] analyzing...')
     try:
-        r = get_qwen().chat.completions.create(
-            model=QWEN_MODEL,
+        r = get_analyst().chat.completions.create(
+            model=ANALYST_MODEL,
             max_tokens=8000,
             messages=[
                 {'role': 'system', 'content': QWEN_SYS},
@@ -209,8 +225,8 @@ def analyze_hypothesis(hyp, ctx):
 
 def write_strategy_code(analysis, ctx):
     logger.info('[KIMI] writing code...')
-    r = get_kimi().chat.completions.create(
-        model=KIMI_MODEL,
+    r = get_generator().chat.completions.create(
+        model=GENERATOR_MODEL,
         max_tokens=2000,
         messages=[
             {'role': 'system', 'content': KIMI_SYS},
@@ -249,8 +265,8 @@ def validate_code(code):
 
 def fix_strategy_code(code, error):
     logger.info('[KIMI] fixing: ' + error[:100])
-    r = get_kimi().chat.completions.create(
-        model=KIMI_MODEL,
+    r = get_generator().chat.completions.create(
+        model=GENERATOR_MODEL,
         max_tokens=2000,
         messages=[
             {'role': 'system', 'content': KIMI_SYS},
@@ -324,8 +340,8 @@ def run_backtest(strategy_path, instruments_catalog):
 def interpret_results(results, analysis):
     logger.info('[QWEN] interpreting...')
     try:
-        r = get_qwen().chat.completions.create(
-            model=QWEN_MODEL,
+        r = get_analyst().chat.completions.create(
+            model=ANALYST_MODEL,
             max_tokens=2000,
             messages=[
                 {'role': 'system', 'content': 'You are a quant analyst interpreting backtest results.'},
