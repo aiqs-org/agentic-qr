@@ -44,6 +44,24 @@ def get_minimax():
 def get_qwen():
     return get_analyst()
 
+
+def extract_message_text(response, model_name: str) -> str:
+    msg = response.choices[0].message
+    raw = msg.content or getattr(msg, 'reasoning', None)
+    if raw is None:
+        raise ValueError(f'Empty response from {model_name}')
+    raw = raw.strip()
+    if not raw:
+        raise ValueError(f'Blank response from {model_name}')
+    return raw
+
+
+def strip_code_fences(text: str, language: str = '') -> str:
+    cleaned = text.strip()
+    if language:
+        cleaned = cleaned.replace(f'```{language}', '')
+    return cleaned.replace('```', '').strip()
+
 SHARED_KNOWLEDGE  = Path(os.getenv('SHARED_KNOWLEDGE',  '/shared/knowledge'))
 SHARED_MODELS     = Path(os.getenv('SHARED_MODELS',     '/shared/models'))
 SHARED_BACKTESTING= Path(os.getenv('SHARED_BACKTESTING','/shared/backtesting'))
@@ -210,11 +228,7 @@ def analyze_hypothesis(hyp, ctx):
                 {'role': 'user', 'content': 'HYPOTHESIS:\n' + json.dumps(hyp, indent=2) + '\n\nDATA:\n' + ctx + '\n\nReturn ONLY valid JSON.'},
             ]
         )
-        msg = r.choices[0].message
-        raw = msg.content if msg.content else getattr(msg, 'reasoning', None)
-        if raw is None:
-            raise ValueError('Empty response from Qwen')
-        raw = raw.strip().replace('```json', '').replace('```', '').strip()
+        raw = strip_code_fences(extract_message_text(r, ANALYST_MODEL), 'json')
         result = json.loads(raw)
         logger.success('[QWEN] done: ' + str(result.get('assessment', ''))[:80])
         return result
@@ -246,7 +260,7 @@ def write_strategy_code(analysis, ctx):
             )},
         ]
     )
-    code = r.choices[0].message.content.strip().replace('```python', '').replace('```', '').strip()
+    code = strip_code_fences(extract_message_text(r, GENERATOR_MODEL), 'python')
     logger.success('[MINIMAX] code written')
     return code
 
@@ -286,7 +300,7 @@ def fix_strategy_code(code, error):
             )},
         ]
     )
-    return r.choices[0].message.content.strip().replace('```python', '').replace('```', '').strip()
+    return strip_code_fences(extract_message_text(r, GENERATOR_MODEL), 'python')
 
 
 def write_and_validate_strategy(analysis, ctx, max_retries=5):
@@ -356,7 +370,7 @@ def interpret_results(results, analysis):
                 {'role': 'user', 'content': 'SPEC:\n' + json.dumps(analysis, indent=2)[:1000] + '\n\nRESULTS:\n' + json.dumps(results, indent=2)[:1000] + '\n\nSummarize in 3-5 sentences.'},
             ]
         )
-        return r.choices[0].message.content.strip()
+        return extract_message_text(r, ANALYST_MODEL)
     except Exception as e:
         logger.warning('[QWEN] interpretation failed: ' + str(e))
         return str(results.get('stats', 'no stats'))
@@ -369,18 +383,32 @@ def process_hypothesis(hypothesis_entry, context):
     logger.info('[SWE] processing: ' + hyp_path.name)
 
     prewritten_code = get_strategy_code_from_file(hyp_data)
-    if prewritten_code:
-        logger.info('[SWE] using pre-written strategy from hypothesis')
-        analysis = {'id': hyp_data.get('id', 'unknown'), 'title': hyp_data.get('title', '')}
-        sp = VAULT_ARTIFACTS / ('strategy_' + ts + '.py')
-        sp.parent.mkdir(parents=True, exist_ok=True)
-        sp.write_text(prewritten_code)
-    else:
-        analysis = analyze_hypothesis(hyp_data, context)
-        code = write_and_validate_strategy(analysis, context)
-        sp = VAULT_ARTIFACTS / ('strategy_' + ts + '.py')
-        sp.parent.mkdir(parents=True, exist_ok=True)
-        sp.write_text(code)
+    try:
+        if prewritten_code:
+            logger.info('[SWE] using pre-written strategy from hypothesis')
+            analysis = {'id': hyp_data.get('id', 'unknown'), 'title': hyp_data.get('title', '')}
+            sp = VAULT_ARTIFACTS / ('strategy_' + ts + '.py')
+            sp.parent.mkdir(parents=True, exist_ok=True)
+            sp.write_text(prewritten_code)
+        else:
+            analysis = analyze_hypothesis(hyp_data, context)
+            code = write_and_validate_strategy(analysis, context)
+            sp = VAULT_ARTIFACTS / ('strategy_' + ts + '.py')
+            sp.parent.mkdir(parents=True, exist_ok=True)
+            sp.write_text(code)
+    except Exception as e:
+        logger.error('[SWE] strategy generation failed: ' + str(e))
+        result = {
+            'status': 'strategy_generation_failed',
+            'hypothesis_id': hyp_data.get('id', hyp_path.stem),
+            'generation_error': str(e),
+            'generator_model': GENERATOR_MODEL,
+            'analyst_model': ANALYST_MODEL,
+        }
+        rp = SHARED_BACKTESTING / 'results' / ('result_' + ts + '.json')
+        rp.parent.mkdir(parents=True, exist_ok=True)
+        rp.write_text(json.dumps(result, indent=2, default=str))
+        return result
     logger.info('[SWE] written -> ' + str(sp))
 
     result = {'status': 'strategy_written', 'strategy_path': str(sp), 'analysis': analysis}
