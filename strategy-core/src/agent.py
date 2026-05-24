@@ -12,7 +12,7 @@ from datetime import datetime, timezone
 from loguru import logger
 from dotenv import load_dotenv
 
-from swe import load_context, load_pending_hypotheses, process_hypothesis
+from swe import SHARED_HYPOTHESES, load_context, load_pending_hypotheses, process_hypothesis
 from bus import init_bus, publish, watch_inbox
 
 load_dotenv()
@@ -23,7 +23,8 @@ VAULT_LOGS.mkdir(parents=True, exist_ok=True)
 
 def handle_inbox_message(msg: dict):
     event = msg.get("event", "")
-    logger.info(f"[BUS] received: {event}")
+    task = msg.get("task", "")
+    logger.info(f"[BUS] received: {event or task or 'unknown'}")
 
     if event == "new_hypothesis":
         hypothesis = msg.get("hypothesis", {})
@@ -37,6 +38,29 @@ def handle_inbox_message(msg: dict):
         publish({
             "event": "backtest_complete",
             "timestamp": datetime.now(timezone.utc).isoformat(),
+            "result": result,
+        })
+
+    elif task == "implement_and_backtest":
+        hypothesis_id = msg.get("hypothesis_id")
+        if not hypothesis_id:
+            logger.warning("[BUS] implement_and_backtest missing hypothesis_id")
+            return
+
+        hyp_path = SHARED_HYPOTHESES / f"{hypothesis_id}.json"
+        if not hyp_path.exists():
+            logger.warning(f"[BUS] hypothesis not found: {hypothesis_id}")
+            return
+
+        context = load_context()
+        result = process_hypothesis(
+            {"path": hyp_path, "data": json.loads(hyp_path.read_text())},
+            context,
+        )
+        publish({
+            "event": "backtest_complete",
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "hypothesis_id": hypothesis_id,
             "result": result,
         })
 
