@@ -24,6 +24,7 @@ MODEL_KEYS = (
     "ANALYST_MODEL",
     "MINIMAX_MODEL",
     "QWEN_MODEL",
+    "GLM_MODEL",
 )
 BASE_URL_KEYS = (
     "OPENROUTER_BASE_URL",
@@ -68,6 +69,10 @@ def is_openrouter_config(values: dict[str, str]) -> bool:
     return any(key in values for key in ("OPENROUTER_API_KEY", "MINIMAX_MODEL", "GENERATOR_MODEL"))
 
 
+def is_openrouter_url(value: str) -> bool:
+    return "openrouter.ai" in value
+
+
 def closest(model: str, known_ids: set[str]) -> str | None:
     lowered = model.lower()
     if lowered in {known.lower() for known in known_ids}:
@@ -88,6 +93,17 @@ def check_models(root: Path, known_ids: set[str]) -> list[ModelCheck]:
         if not values:
             checks.append(ModelCheck(service, "env", "", "warn", f"{rel} missing or unreadable"))
             continue
+        analyst_base_url = values.get("ANALYST_BASE_URL") or values.get("QWEN_BASE_URL") or ""
+        if analyst_base_url and not is_openrouter_url(analyst_base_url):
+            has_provider_key = bool(values.get("ANALYST_API_KEY") or values.get("QWEN_API_KEY"))
+            if not has_provider_key:
+                checks.append(ModelCheck(
+                    service,
+                    "ANALYST_API_KEY",
+                    "",
+                    "warn",
+                    "ANALYST_BASE_URL points outside OpenRouter but no ANALYST_API_KEY/QWEN_API_KEY is set",
+                ))
         if not is_openrouter_config(values):
             checks.append(ModelCheck(service, "env", "", "skip", "not configured for OpenRouter"))
             continue
@@ -96,10 +112,28 @@ def check_models(root: Path, known_ids: set[str]) -> list[ModelCheck]:
             keys.append("GENERATOR_MODEL")
         elif "MINIMAX_MODEL" in values:
             keys.append("MINIMAX_MODEL")
+        analyst_keys = []
         if "ANALYST_MODEL" in values:
-            keys.append("ANALYST_MODEL")
+            analyst_keys.append("ANALYST_MODEL")
         elif "QWEN_MODEL" in values:
-            keys.append("QWEN_MODEL")
+            analyst_keys.append("QWEN_MODEL")
+        if "GLM_MODEL" in values and (
+            "ANALYST_BASE_URL" in values or "QWEN_BASE_URL" in values
+        ):
+            analyst_keys.append("GLM_MODEL")
+        if analyst_base_url and not is_openrouter_url(analyst_base_url):
+            for key in analyst_keys:
+                model = values.get(key)
+                if model:
+                    checks.append(ModelCheck(
+                        service,
+                        key,
+                        model,
+                        "skip",
+                        "external analyst provider; not checked against OpenRouter",
+                    ))
+        else:
+            keys.extend(analyst_keys)
         for key in MODEL_KEYS:
             if key not in keys:
                 continue
