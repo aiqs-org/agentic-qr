@@ -380,6 +380,7 @@ def interpret_results(results, analysis):
 def process_hypothesis(hypothesis_entry, context):
     hyp_path = hypothesis_entry['path']
     hyp_data = hypothesis_entry['data']
+    hypothesis_id = hyp_data.get('id', hyp_path.stem)
     ts = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S')
     logger.info('[SWE] processing: ' + hyp_path.name)
 
@@ -401,7 +402,7 @@ def process_hypothesis(hypothesis_entry, context):
         logger.error('[SWE] strategy generation failed: ' + str(e))
         result = {
             'status': 'strategy_generation_failed',
-            'hypothesis_id': hyp_data.get('id', hyp_path.stem),
+            'hypothesis_id': hypothesis_id,
             'generation_error': str(e),
             'generator_model': GENERATOR_MODEL,
             'analyst_model': ANALYST_MODEL,
@@ -412,7 +413,12 @@ def process_hypothesis(hypothesis_entry, context):
         return result
     logger.info('[SWE] written -> ' + str(sp))
 
-    result = {'status': 'strategy_written', 'strategy_path': str(sp), 'analysis': analysis}
+    result = {
+        'status': 'strategy_written',
+        'hypothesis_id': hypothesis_id,
+        'strategy_path': str(sp),
+        'analysis': analysis,
+    }
     try:
         inst_path = SHARED_MODELS / 'instruments.json'
         instruments = json.loads(inst_path.read_text()) if inst_path.exists() else {}

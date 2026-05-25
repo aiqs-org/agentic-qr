@@ -38,6 +38,7 @@ def handle_inbox_message(msg: dict):
         publish({
             "event": "backtest_complete",
             "timestamp": datetime.now(timezone.utc).isoformat(),
+            "hypothesis_id": result.get("hypothesis_id"),
             "result": result,
         })
 
@@ -94,6 +95,7 @@ def run_pending():
             publish({
                 "event": "backtest_complete",
                 "timestamp": datetime.now(timezone.utc).isoformat(),
+                "hypothesis_id": result.get("hypothesis_id"),
                 "result": result,
             })
         except Exception as e:
