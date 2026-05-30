@@ -433,7 +433,8 @@ def process_hypothesis(hypothesis_entry, context):
     rp = SHARED_BACKTESTING / 'results' / ('result_' + ts + '.json')
     rp.parent.mkdir(parents=True, exist_ok=True)
     rp.write_text(json.dumps(result, indent=2, default=str))
-    hyp_path.rename(str(hyp_path) + '.done')
+    if hyp_path.exists():
+        hyp_path.rename(str(hyp_path) + '.done')
     return result
 
 
