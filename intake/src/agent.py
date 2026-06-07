@@ -29,6 +29,7 @@ INTAKE_DROP = Path(os.getenv("INTAKE_DROP", "/intake/drop"))
 INTAKE_PROCESSED = Path(os.getenv("INTAKE_PROCESSED", "/intake/processed"))
 VAULT_LOGS = Path(os.getenv("VAULT_LOGS", "/vault/logs"))
 VAULT_INTAKE_TRACE = Path(os.getenv("VAULT_INTAKE_TRACE", "/vault/intake-trace"))
+ENABLE_TELEGRAM = os.getenv("ENABLE_TELEGRAM", "true").lower() in {"1", "true", "yes", "on"}
 
 INTAKE_DROP.mkdir(parents=True, exist_ok=True)
 INTAKE_PROCESSED.mkdir(parents=True, exist_ok=True)
@@ -146,12 +147,15 @@ def process_telegram():
 def main():
     logger.info("=== intake router starting ===")
     logger.info(f"[DROP] watching {INTAKE_DROP}")
-    send("Intake router online. Drop files or send messages to route them.")
+    logger.info(f"[TELEGRAM] enabled={ENABLE_TELEGRAM}")
+    if ENABLE_TELEGRAM:
+        send("Intake router online. Drop files or send messages to route them.")
 
     while True:
         try:
             process_drop_folder()
-            process_telegram()
+            if ENABLE_TELEGRAM:
+                process_telegram()
         except Exception as e:
             logger.error(f"[AGENT] loop error: {e}")
         time.sleep(2)
