@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Project",
+  "type": "object",
+  "required": ["project_id", "title", "status", "created_at"],
+  "properties": {
+    "project_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "paused", "completed", "archived"]
+    },
+    "discord": {
+      "type": "object",
+      "properties": {
+        "guild_id": { "type": "string" },
+        "channel_id": { "type": "string" },
+        "channel_name": { "type": "string" }
+      }
+    },
+    "obsidian_path": {
+      "type": "string"
+    },
+    "root_context_nodes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "active_task_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "artifact_paths": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

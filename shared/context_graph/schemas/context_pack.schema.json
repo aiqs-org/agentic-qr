@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ContextPack",
+  "type": "object",
+  "required": ["context_pack_id", "purpose", "created_at", "nodes"],
+  "properties": {
+    "context_pack_id": {
+      "type": "string"
+    },
+    "project_id": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string",
+      "description": "What this pack is meant to help a worker do."
+    },
+    "entry_mode": {
+      "type": "string",
+      "enum": ["system_led_discovery", "user_led_thesis", "review", "postmortem"]
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["node_id", "role"],
+        "properties": {
+          "node_id": { "type": "string" },
+          "role": {
+            "type": "string",
+            "enum": ["worldview", "principle", "heuristic", "prior_result", "constraint", "open_question"]
+          },
+          "summary": { "type": "string" }
+        }
+      }
+    },
+    "worker_instructions": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

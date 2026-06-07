@@ -18,6 +18,30 @@ services:
       - /home/gram/projects/vault:/vault:rw
     networks:
       - caveman-net
+
+  context-distiller:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: verbose-context-distiller
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-}
+      - QWEN_API_KEY=${QWEN_API_KEY:-}
+      - QWEN_BASE_URL=${QWEN_BASE_URL:-}
+      - QWEN_MODEL=${QWEN_MODEL:-}
+      - DISTILLER_MODEL=${DISTILLER_MODEL:-}
+      - SHARED_CONTEXT_GRAPH_PATH=/shared/context_graph
+      - VAULT_BUS_PATH=/vault/bus
+      - DISTILLER_POLL_INTERVAL=15
+    command: ["python", "context_distiller.py"]
+    volumes:
+      - /home/gram/projects/shared:/shared:rw
+      - /home/gram/projects/vault:/vault:rw
+    networks:
+      - caveman-net
 networks:
   caveman-net:
     external: true

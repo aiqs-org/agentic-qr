@@ -107,10 +107,15 @@ The complete source of these modules is provided below — read them carefully b
 Rules:
 - Raw Python only. No markdown. No explanation.
 - Strategy class must be named GeneratedStrategy.
+- Implement the requested hypothesis exactly. Do not add macro filters, alternate
+  instruments, hedges, stops, or risk gates unless the user explicitly requested
+  them.
 - on_start() must call self.subscribe_bars(self.bar_type) where bar_type is a BarType object.
 - NEVER call subscribe_bars(self.instrument_id) — instrument_id is not a BarType.
 - Price precision: always f"{value:.2f}" — never str(round(x,2)).
 - Results: engine.get_result().stats_pnls
+- Do not run a backtest at module import time. Top-level code may only define
+  imports, constants, helper functions, and GeneratedStrategy.
 '''
 
 STRATEGY_SKELETON = '''import sys
@@ -170,7 +175,7 @@ class GeneratedStrategy(Strategy):
         self.close_all_positions(self.instrument_id)
 
 
-if __name__ == "__main__" or True:
+if __name__ == "__main__":
     instrument = get_instrument("SPY")
     bar_type = get_bar_type("SPY")
     bars = load_bars("SPY", bar_type)
@@ -268,9 +273,12 @@ def write_strategy_code(analysis, ctx):
 
 def validate_code(code):
     try:
-        ast.parse(code)
+        tree = ast.parse(code)
     except SyntaxError as e:
         return False, 'SyntaxError: ' + str(e)
+    unsafe = find_unguarded_runtime_execution(tree)
+    if unsafe:
+        return False, unsafe
     tmp = Path('/tmp/validate_strategy.py')
     tmp.write_text(code)
     try:
@@ -284,6 +292,67 @@ def validate_code(code):
     if 'subscribe_bars(self.instrument_id)' in code:
         return False, 'subscribe_bars() called with InstrumentId instead of BarType'
     return True, None
+
+
+def find_unguarded_runtime_execution(tree: ast.Module) -> str | None:
+    """Reject generated strategies that run a backtest as an import side effect."""
+
+    allowed_defs = (ast.Import, ast.ImportFrom, ast.ClassDef, ast.FunctionDef, ast.AsyncFunctionDef)
+    allowed_assigns = (ast.Assign, ast.AnnAssign, ast.AugAssign)
+
+    for node in tree.body:
+        if isinstance(node, allowed_defs):
+            continue
+        if isinstance(node, allowed_assigns) and not contains_runtime_call(node):
+            continue
+        if isinstance(node, ast.Expr) and isinstance(node.value, ast.Constant):
+            continue
+        if is_main_guard(node):
+            continue
+        if contains_runtime_call(node):
+            return 'Generated strategy runs backtest or submits engine work at module import time'
+    return None
+
+
+def is_main_guard(node: ast.AST) -> bool:
+    if not isinstance(node, ast.If):
+        return False
+    test = node.test
+    if not isinstance(test, ast.Compare):
+        return False
+    if not isinstance(test.left, ast.Name) or test.left.id != '__name__':
+        return False
+    if len(test.ops) != 1 or not isinstance(test.ops[0], ast.Eq):
+        return False
+    if len(test.comparators) != 1:
+        return False
+    comparator = test.comparators[0]
+    return isinstance(comparator, ast.Constant) and comparator.value == '__main__'
+
+
+def contains_runtime_call(node: ast.AST) -> bool:
+    runtime_names = {
+        'build_engine',
+        'load_bars',
+        'load_quotes_from_bars',
+    }
+    runtime_methods = {
+        'add_instrument',
+        'add_data',
+        'add_strategy',
+        'run',
+        'dispose',
+        'submit_order',
+    }
+    for child in ast.walk(node):
+        if not isinstance(child, ast.Call):
+            continue
+        func = child.func
+        if isinstance(func, ast.Name) and func.id in runtime_names:
+            return True
+        if isinstance(func, ast.Attribute) and func.attr in runtime_methods:
+            return True
+    return False
 
 
 def fix_strategy_code(code, error):

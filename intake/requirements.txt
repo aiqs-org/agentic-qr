@@ -4,3 +4,4 @@ loguru>=0.7.0
 requests>=2.31.0
 pdfminer.six>=20221105
 watchdog>=4.0.0
+discord.py>=2.4.0

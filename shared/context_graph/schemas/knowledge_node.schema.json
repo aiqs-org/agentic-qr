@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KnowledgeNode",
+  "type": "object",
+  "required": ["node_id", "node_type", "title", "status", "confidence", "created_at"],
+  "properties": {
+    "node_id": {
+      "type": "string",
+      "description": "Stable id for this knowledge graph node."
+    },
+    "node_type": {
+      "type": "string",
+      "enum": [
+        "source",
+        "belief",
+        "principle",
+        "heuristic",
+        "strategy_thesis",
+        "strategy_spec",
+        "experiment",
+        "result",
+        "postmortem",
+        "memory_update"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["raw", "candidate", "validated", "contradicted", "deprecated", "archived"]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "source_type": {
+      "type": "string",
+      "enum": ["expert", "internal_experiment", "user_belief", "market_data", "system_generated", "unknown"]
+    },
+    "validation_required": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "provenance",
+          "distillation_review",
+          "reasoning_review",
+          "historical_examples",
+          "backtest",
+          "live_shadow_test",
+          "human_approval"
+        ]
+      }
+    },
+    "parents": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "children": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "evidence_supports": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "evidence_contradicts": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "project_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "raw_content_ref": {
+      "type": "string"
+    },
+    "obsidian_path": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

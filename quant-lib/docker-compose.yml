@@ -8,6 +8,7 @@ services:
     volumes:
       - ../shared/data:/shared/data:ro
       - ../shared/knowledge:/shared/knowledge:ro
+      - ../shared/context_graph:/shared/context_graph:rw
       - ../shared/backtesting:/shared/backtesting:rw
       - ../shared/models:/shared/models:rw
       - ../vault/bus:/vault/bus:rw

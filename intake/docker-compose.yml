@@ -10,6 +10,23 @@ services:
       - ./processed:/intake/processed:rw
       - ../shared/hypotheses:/shared/hypotheses:rw
       - ../shared/knowledge:/shared/knowledge:rw
+      - ../shared/context_graph:/shared/context_graph:rw
+      - ../shared/projects:/shared/projects:rw
+      - ../vault/bus:/vault/bus:rw
+      - ../vault/logs:/vault/logs:rw
+    networks:
+      - caveman-net
+
+  discord-intake:
+    build: .
+    container_name: caveman-discord-intake
+    restart: unless-stopped
+    env_file:
+      - .env
+    command: ["python", "src/discord_agent.py"]
+    volumes:
+      - ../shared/context_graph:/shared/context_graph:rw
+      - ../shared/projects:/shared/projects:rw
       - ../vault/bus:/vault/bus:rw
       - ../vault/logs:/vault/logs:rw
     networks:

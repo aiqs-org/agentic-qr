@@ -18,6 +18,8 @@ The repo is organized around two cognitive branches and a shared runtime layer:
   data used by strategy runtimes.
 - `intake/`: input router for dropped files and Telegram messages.
 - `shared/`: tracked shared fixtures, models, knowledge, and backtesting config.
+- `shared/context_graph/`: schemas for projects, knowledge nodes, and context
+  packs that bridge Discord, Obsidian, Verbose, and Caveman.
 - `infisical/`: local secrets service configuration.
 
 The server also contains runtime-only directories ignored by Git:
@@ -75,6 +77,33 @@ caveman/pipelines
   -> shared/models and shared/backtesting/bars
   -> strategy-core
 ```
+
+Future Discord/Obsidian flow:
+
+```text
+Discord project or inbox channel
+  -> intake adapter
+  -> shared/context_graph KnowledgeNode or Project
+  -> verbose context pack / reasoning packet
+  -> caveman or strategy-core execution
+  -> result, postmortem, and Obsidian note update
+```
+
+See `docs/discord_obsidian_architecture.md`.
+
+The first Discord adapter runs as `caveman-discord-intake` from
+`intake/src/discord_agent.py`. It uses channel prefixes for routing and writes
+project and knowledge records under `shared/projects/` and
+`shared/context_graph/`.
+
+The first distillation worker runs as `verbose-context-distiller` from
+`verbose/context_distiller.py`. It turns raw Discord inbox nodes into candidate
+belief, principle, and heuristic nodes for human review.
+
+Caveman services should keep execution context scoped. See
+`caveman/CAVEMAN_ARCHITECTURE.md`. In particular, `quant-lib` keeps
+`shared/models/*.json` mechanical and writes optional object-catalog reasoning
+packets under `shared/context_graph/reasoning_packets/`.
 
 ## Current Server Runtime
 
